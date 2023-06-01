@@ -1,0 +1,6 @@
+* @Agrium/architects
+
+# allow Renovate automerging
+
+**/yarn.lock
+**/package.json

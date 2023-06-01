@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx turbo run pre-commit --concurrency=1 --since=HEAD --no-deps --force

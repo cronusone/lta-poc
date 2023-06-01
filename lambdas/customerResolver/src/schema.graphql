@@ -1,0 +1,8 @@
+type Customer {
+  id: ID!
+  message: String!
+}
+
+type Query {
+  customerById(id: ID!): Customer!
+}

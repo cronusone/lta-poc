@@ -1,0 +1,17 @@
+type Customer {
+  id: ID!
+  message: String!
+}
+
+type Query {
+  customerById(id: ID!): Customer!
+  _service: _Service!
+}
+
+type _Service {
+  sdl: String
+}
+
+input _Any {
+  __typename: String!
+}

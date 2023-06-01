@@ -1,0 +1,65 @@
+{
+  "extends": ["config:js-app"],
+  "statusCheckVerify": true,
+  "ignoreDeps": ["node", "@types/node"],
+  "timezone": "America/Denver",
+  "schedule": ["every 2 weeks on Tuesday"],
+  "prConcurrentLimit": 20,
+  "separateMajorMinor": true,
+  "separateMultipleMajor": true,
+  "labels": ["renovate"],
+  "dependencyDashboard": true,
+  "internalChecksFilter": "strict",
+  "stabilityDays": 7,
+  "prCreation": "not-pending",
+  "masterIssue": true,
+  "rollbackPrs": true,
+  "lockFileMaintenance": { "enabled": true },
+  "postUpdateOptions": ["yarnDedupeHighest"],
+  "enabledManagers": ["dockerfile", "npm", "github-actions"],
+  "rebaseWhen": "conflicted",
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true
+    },
+    {
+      "groupName": "aws libraries and tools",
+      "matchPackagePatterns": ["aws", "constructs"]
+    },
+    {
+      "groupName": "eslint",
+      "matchPackagePatterns": ["eslint"]
+    },
+    {
+      "groupName": "jest",
+      "extends": ["monorepo:jest"],
+      "matchPackagePatterns": ["jest"]
+    },
+    {
+      "groupName": "esbuild and tsup",
+      "matchPackageNames": ["tsup", "esbuild"]
+    },
+    {
+      "groupName": "middy packages",
+      "matchPackagePrefixes": ["@middy"]
+    },
+    {
+      "groupName": "nutrien packages",
+      "matchPackagePrefixes": ["@nutrien"],
+      "schedule": ["at any time"],
+      "stabilityDays": 0
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "labels": ["SECURITY"]
+  },
+  "encrypted": {
+    "npmToken": "jXRr8VxN+2odRftiAoRw3FAKAwg1t/R323p/Jlzn8gIupTMQCaOc4xEVrZdfP8vJyVEWjDhZn0a7mlWrkRUrUK61d2hx/tRaU/BS04/3X02kSOtUQ9f3WIDsLgwuM7jVloeCNmubcFcR+fuhbnPE2VoDV90vyxftCxeYq5mjTo+2U8E+GEy4hZbLW2GKYZfh1nbR7NbQ1FUUxHcjE7o78px2ZOchDLLG+eXFqE8n+OnUxtZ7SY1neKADVB8B8j/0Wanw9WhccEnjnKY4xcz1f12h3N9NBiQPajnURt41GPao081MEBEC5SL5UqZg92puRP2kW4l3M+T8w+nop8x8JQ=="
+  },
+  "npmrc": "always-auth=true\n@nutrien:registry=https://packagecloud.io/agrible/lovepaign/npm/\n//packagecloud.io/agrible/lovepaign/npm/:_authToken=${NPM_TOKEN}"
+}

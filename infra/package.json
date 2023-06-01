@@ -1,0 +1,49 @@
+{
+  "name": "infra",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "cdk deploy",
+    "destroy": "cdk destroy",
+    "synth": "cdk synth",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "yarn lint --fix",
+    "pre-commit": "lint-staged",
+    "deploy:pipeline": "cdk deploy --app \"node -r esbuild-register bin/pipeline.ts\"",
+    "synth:pipeline": "cdk synth --app \"node -r esbuild-register bin/pipeline.ts\"",
+    "test": "jest",
+    "test:watch": "yarn test --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@nutrien/data-product-account-utils": "2.4.2",
+    "@nutrien/data-product-cdk-constructs": "6.4.1",
+    "@nutrien/data-product-graphql-utils": "3.8.1",
+    "@nutrien/data-product-token-authorizer-lambda": "1.2.4",
+    "aws-cdk-lib": "2.79.0",
+    "constructs": "10.1.277",
+    "graphql-schema": "0.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "29.4.0",
+    "@types/node": "17.0.12",
+    "esbuild": "0.17.12",
+    "esbuild-jest": "0.5.0",
+    "esbuild-register": "3.4.2",
+    "eslint": "8.34.0",
+    "jest": "29.4.3",
+    "tsup": "6.7.0",
+    "typescript": "4.9.5"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-typescript"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  }
+}

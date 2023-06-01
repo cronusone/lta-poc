@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "3.293.0",
+    "@aws-sdk/client-ssm": "3.293.0",
+    "@aws-sdk/client-sts": "3.293.0",
+    "@aws-sdk/credential-provider-node": "3.293.0",
+    "@middy/core": "4.2.6",
+    "@middy/secrets-manager": "4.2.6",
+    "@middy/ssm": "4.2.6",
+    "lodash": "4.17.21",
+    "zod": "3.21.4"
+  }
+}

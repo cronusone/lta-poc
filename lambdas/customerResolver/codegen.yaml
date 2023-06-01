@@ -1,0 +1,9 @@
+schema: src/schema.graphql
+generates:
+  ./src/schema.ts:
+    plugins:
+      - add:
+          content: '/* auto-generated file, do not edit directly! */'
+      - typescript
+config:
+  avoidOptionals: true

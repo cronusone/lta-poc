@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - sh ./codebuild_install_deps.sh
+  build:
+    commands:
+      - yarn ci

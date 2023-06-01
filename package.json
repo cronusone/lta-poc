@@ -1,0 +1,62 @@
+{
+  "name": "@nutrien/customer",
+  "repository": "Agrium/customer",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "lambdas/*",
+    "packages/*",
+    "infra"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "ci": "turbo run ci --concurrency=2",
+    "postci": "yarn workspace graphql-schema check-schema",
+    "predeploy": "yarn build",
+    "deploy": "yarn workspace infra deploy",
+    "destroy": "yarn workspace infra destroy",
+    "e2e": "node scripts/run-e2e-tests.js",
+    "format": "prettier --write \"**/(src|cdk|bin)/**/*.{js,jsx,ts,tsx,md}\"",
+    "hygen": "HYGEN_TMPLS=node_modules/@nutrien/data-product-hygen/_templates hygen",
+    "lint": "turbo run lint",
+    "prepare": "husky install",
+    "synth": "yarn workspace infra synth",
+    "test": "turbo run test",
+    "predeploy:pipeline": "yarn build",
+    "deploy:pipeline": "yarn workspace infra deploy:pipeline",
+    "presynth:pipeline": "yarn build",
+    "synth:pipeline": "yarn workspace infra synth:pipeline"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "16.3.0",
+    "@commitlint/config-conventional": "16.2.4",
+    "@nutrien/data-product-eslint-config": "2.0.1",
+    "@nutrien/data-product-hygen": "latest",
+    "@nutrien/data-product-tsconfig": "1.4.0",
+    "@nutrien/prettier-config-nutrien": "1.0.1",
+    "concurrently": "7.6.0",
+    "dotenv": "16.0.3",
+    "esbuild": "0.17.12",
+    "esbuild-register": "3.4.2",
+    "husky": "8.0.3",
+    "lambda-local": "2.0.3",
+    "lint-staged": "13.2.0",
+    "newman": "5.3.2",
+    "prettier": "2.8.6",
+    "turbo": "1.8.3",
+    "yargs": "17.7.1"
+  },
+  "engines": {
+    "yarn": ">=1.22.19 <2.0.0",
+    "npm": "please-use-yarn",
+    "node": ">=16"
+  },
+  "packageManager": "yarn@1.22.19",
+  "prettier": "@nutrien/prettier-config-nutrien",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "extends": "@nutrien/data-product-tsconfig/base.json",
+  "compilerOptions": {
+    "resolveJsonModule": true
+  },
+  "include": ["bin/**/*", "cdk/**/*", "../package.json"],
+  "exclude": ["node_modules"]
+}

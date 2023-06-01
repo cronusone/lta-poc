@@ -1,0 +1,28 @@
+{
+  "name": "graphql-schema",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "node -r esbuild-register ./src/generate-schema.ts",
+    "postbuild": "prettier --write generated/*.graphql",
+    "check-schema": "node -r esbuild-register ./src/check-schema.ts",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "pre-commit": "lint-staged"
+  },
+  "dependencies": {
+    "@nutrien/data-product-graphql-utils": "3.8.1"
+  },
+  "devDependencies": {
+    "eslint": "8.34.0",
+    "esbuild": "0.17.12",
+    "esbuild-register": "3.4.2"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  }
+}

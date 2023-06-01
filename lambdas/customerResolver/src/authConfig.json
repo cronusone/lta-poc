@@ -1,0 +1,4 @@
+{
+  "read": ["read:placeholder", "write:placeholder"],
+  "write": ["write:placeholder"]
+}

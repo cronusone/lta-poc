@@ -1,0 +1,49 @@
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**"]
+    },
+    "ci": {
+      "dependsOn": ["lint", "size", "test", "typecheck"]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    },
+    "graphql-schema#build": {
+      "cache": false
+    },
+    "pre-commit": {
+      "outputs": []
+    },
+    "size": {
+      "dependsOn": ["build"]
+    },
+    "test": {
+      "outputs": ["coverage/**"],
+      "dependsOn": ["build"]
+    },
+    "synth": {
+      "dependsOn": ["build"]
+    },
+    "synth:pipeline": {
+      "dependsOn": ["build"]
+    },
+    "deploy": {
+      "dependsOn": ["build"]
+    },
+    "deploy:pipeline": {
+      "dependsOn": ["build"]
+    },
+    "test:integration": {
+      "dependsOn": ["build"],
+      "outputs": ["coverage/**"]
+    },
+    "typecheck": {
+      "outputs": []
+    }
+  }
+}
