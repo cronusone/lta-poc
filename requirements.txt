@@ -1,0 +1,15 @@
+attrs==23.1.0
+aws-cdk-lib==2.79.1
+aws-cdk.asset-awscli-v1==2.2.170
+aws-cdk.asset-kubectl-v20==2.1.1
+aws-cdk.asset-node-proxy-agent-v5==2.0.143
+cattrs==22.2.0
+constructs==10.2.21
+exceptiongroup==1.1.1
+importlib-resources==5.12.0
+jsii==1.81.0
+publication==0.0.3
+python-dateutil==2.8.2
+six==1.16.0
+typeguard==2.13.3
+typing_extensions==4.5.0
